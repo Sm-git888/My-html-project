@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Guide (big person) -->
+  <circle cx="18" cy="18" r="6"></circle>
+  <path d="M10 40 C10 30 26 30 26 40"></path>
+
+  <!-- Group (small people) -->
+  <circle cx="36" cy="22" r="4"></circle>
+  <circle cx="48" cy="22" r="4"></circle>
+
+  <path d="M30 40 C30 34 42 34 42 40"></path>
+  <path d="M42 40 C42 34 54 34 54 40"></path>
+
+</svg>
