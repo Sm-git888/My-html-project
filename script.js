@@ -3,40 +3,60 @@ const form = document.querySelector("#myForm");
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const firstName = document.querySelector("#firstName").value.trim();
-    const lastName = document.querySelector("#lastName").value.trim();
+    const fullName = document.querySelector("#fullName").value.trim();
+    const subject = document.querySelector("#subject").value.trim();
     const email = document.querySelector("#email").value.trim();
     const phone = document.querySelector("#phone").value.trim();
     const message = document.querySelector("#message").value.trim();
     const terms = document.querySelector("#terms").checked;
 
-    if (firstName.length < 3 || lastName.length < 3) {
-        alert("First and Last name should have at least 3 letters");
+    if (fullName.length < 3) {
+        alert("Name must be at least 3 characters");
         return;
     }
-
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-        alert("Your email address is not legal");
+    if (!email.includes("@")) {
+        alert("Invalid Email");
         return;
     }
-
     if (phone.length < 10) {
-        alert("Phone number must be at least 10 digits");
+        alert("Phone must be at least 10 digits");
         return;
     }
-
+    if (subject.length < 5) {
+        alert("Subject must be at least 5 characters");
+        return;
+    }
     if (message.length < 10) {
-        alert("Message is too short min 10 chars");
+        alert("Message must be at least 10 characters");
         return;
     }
-
     if (!terms) {
-        alert("Please agree to the Terms of Service");
+        alert("Please agree to the terms");
         return;
     }
 
+    const formData = {
+        fullName: fullName,
+        subject: subject,
+        email: email,
+        phone: phone,
+        message: message
+    };
 
-    alert("SUCCESS! Your message has been sent.");
-    console.log({ firstName, lastName, email, phone, message });
+    fetch("http://localhost:3000/contact", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+    })
+        .then(response => response.text())
+        .then(data => {
+            alert(data);
+            form.reset();
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("Server error");
+        });
 });
