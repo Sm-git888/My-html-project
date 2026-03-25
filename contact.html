@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -20,28 +20,40 @@
         </div>
     </header>
 
-    <main>
-     
+    <main class="contact-section">
         <div class="form-card">
+            
+            <div class="contact-info-top">
+                <p><strong>Email:</strong> support@mywebsite.com | <strong>Phone:</strong> 050-1234567</p>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">TikTok</a>
+                </div>
+            </div>
+            
+            <hr>
+
             <h2>Send Us a Message</h2>
             <p>Please fill in the form below to get in touch with us.</p>
 
             <form id="myForm">
-                <div class="row">
-                    <input type="text" id="firstName" placeholder="First name" required />
-                    <input type="text" id="lastName" placeholder="Last name" required />
+                <div class="form-row">
+                    <input type="text" id="fullName" placeholder="Full Name" required />
+                    <input type="text" id="subject" placeholder="Subject" required />
                 </div>
-                <div class="row">
+                
+                <div class="form-row">
                     <input type="email" id="email" placeholder="Email address" required />
                     <input type="text" id="phone" placeholder="Phone Number" required />
                 </div>
 
                 <textarea id="message" placeholder="Message" rows="5" required></textarea>
 
-                <div class="checkbox-container">
+                <div class="checkbox-group">
                     <input type="checkbox" id="terms" required>
                     <label for="terms">
-                        I've read and agree with <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                        I've read and agree with <a href="#">Terms of Service</a>
                     </label>
                 </div>
 
